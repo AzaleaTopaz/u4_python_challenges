@@ -18,6 +18,38 @@
 #      Solution Goes Here ->
 # ---------------------------------
 
+def min_to_sec(minutes):
+    seconds = minutes * 60
+    return seconds
+
+def hours_to_sec(hours):
+    seconds = hours * 3600
+    return seconds
+
+def sec_in_day(day):
+    seconds = day * 86400
+    return seconds
+
+def hours_in_june():
+    days_in_june = 30
+    hours = days_in_june * 24
+    return hours
+
+def min_in_august():
+    days_in_august = 31
+    minutes = days_in_august * 24 * 60
+    return minutes
+
+# print(min_to_sec(1))
+# print(min_to_sec(5))
+# print(hours_to_sec(1))
+# print(hours_to_sec(2.5))
+# print(sec_in_day(1))
+# print(sec_in_day(3))
+# print(hours_in_june())
+# print(min_in_august())
+
+
 
 
 #  2) Middle letter
@@ -29,6 +61,16 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+def mid(a):
+    length = len(a)
+    if length % 2 == 0:
+        return ""
+    else:
+        middle_index = length // 2
+        return a[middle_index]
+       
+# print(mid("abc"))
+# print(mid("aaaa"))
 
 
 # ### 3) Hide the credit card number
@@ -38,7 +80,22 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+def hide_credit_card_number(card_number):
+    card_number_str = str(card_number)
+    
+    if len(card_number_str) < 4:
+        return "Invalid card number"
+ 
+    last_four = card_number_str[-4:]
+    masked_card_number = '*' * (len(card_number_str) - 4) + last_four
+    return masked_card_number
 
+### used chatGPT for help
+    
+# print(hide_credit_card_number("1234567894444"))
+   
+    
+ 
 
 
 # ### 4) Online status
@@ -65,6 +122,19 @@
 #      Solution Goes Here ->
 # ---------------------------------
 
+def online_count(status_dict):
+    return sum(1 for status in status_dict.values() if status == "online")
+
+# Example usage
+statuses = {
+    "John": "online",
+    "Paul": "offline",
+    "George": "online",
+    "Ringo": "offline"
+    }
+
+print(online_count(statuses))
+
 
 
 #  5) Give me the discount
@@ -74,7 +144,15 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
-
+def apply_discount(full_price, discount_percentage):
+    # Calculate the discount amount
+    discount_amount = full_price * (discount_percentage / 100)
+    
+    # Subtract the discount amount from the full price to get the discounted price
+    discounted_price = full_price - discount_amount
+    
+    return discounted_price
+print(apply_discount(100, 20))
 
 #  6) Pythagorean Theorum
 
@@ -85,7 +163,13 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+import math
 
+def calculate_hypotenuse(adjacent, opposite):
+    hypotenuse = math.sqrt(adjacent**2 + opposite**2)
+    return hypotenuse
+
+# print(calculate_hypotenuse(3, 4))
 
 #  7) Fibonacci Sequence 
 # Everyone's favorite Math Problem!
@@ -98,3 +182,17 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+
+def create_fibonacci(a, b):
+    # Initialize the sequence with the two starting numbers
+    fibonacci_sequence = [a, b]
+    
+    # Generate the next nine numbers in the sequence
+    for _ in range(9):
+        next_number = fibonacci_sequence[-1] + fibonacci_sequence[-2]
+        fibonacci_sequence.append(next_number)
+    
+    return fibonacci_sequence
+
+print(create_fibonacci(2, 3))
+
